@@ -2,10 +2,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.gamutgurus</groupId>
-	<artifactId>gamutkart</artifactId>
+	<groupId>com.wiculty</groupId>
+	<artifactId>wiculty</artifactId>
 	<packaging>war</packaging>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.0-RELEASE</version>
 	
 	<dependencies>
 		<dependency>
@@ -25,7 +25,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>gamutgurus</finalName>
+		<finalName>wiculty</finalName>
 	</build>
 	
 </project>
