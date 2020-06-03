@@ -1,0 +1,58 @@
+Wiculty Learning Solutions Pvt. Ltd. - www.wiculty.com
+Gamut Gurus Technologies - www.gamutgurus.com 
+	[ Exclusive DevOps & Cloud Learning Hub ]
+		
+Contact: info@wiculty.com
+		 info@gamutgurus.com
+			 
+		 India: +91- 944897 1000
+		 US & ROW: +1 ...
+	
+Project, Practicals & Notes:
+------------------------------
+Project:
+Gamut Gurus e-commerce Application
+( Traditional Build & Deployment and Application Hosting )
+---
+
+Description:
+Before we containerize the application, let's first see how typcial build and deployments model looks like with VMs or Physical machines where the application is not containerised. This approach has lot of disadvantages and inconsistencies when it comes to application Auto scaling, Zero Downtime Releases, Rollbacks, Rolling updates, Self healing ..etc.
+
+Once we experience this model, Let's discuss the advantages of application containerisation and containerise our GamutGurus application.
+
+Agenda:
+Build, Deploy and Launch Gamut Gurus e-commerce application.
+	1. Clone
+	2. Build
+	3. Deployment the gamutgurus.war package into Tomcat server
+
+# Clone The Project Source Code
+
+# Build the project
+
+# Deploy the project into Tomcat
+
+# Launch the application
+
+
+2.) Containerising Gamut Gurus e-commerce Application
+	1. Writing the Dockerfile to create the Image
+	2. Creating Docker Image using '$ docker build' command
+	3. Setting up the environment using treditional approach ex: Using shell script
+	
+3.) Using Kubernetes to Archestrate the containerised Application
+
+--> After Next Webinar Session
+
+
+
+Module:2
+Docker Essentials - Docker images - Deep dive!
+===============================================
+- What is Docker Image?
+- Docker image advantages in application deployments
+- Shipping application's code with dependencies as Docker Images
+- Setting up Docker Hub account. Publishing images into Docker Hub
+- Writing Dockerfile to create image for GamutGurus e-commerce application
+- Building Docker Image
+
