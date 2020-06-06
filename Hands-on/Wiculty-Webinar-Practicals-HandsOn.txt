@@ -1,58 +1,75 @@
-Wiculty Learning Solutions Pvt. Ltd. - www.wiculty.com
-Gamut Gurus Technologies - www.gamutgurus.com 
-	[ Exclusive DevOps & Cloud Learning Hub ]
+        Wiculty Learning Solutions Pvt. Ltd. - www.wiculty.com
+        Gamut Gurus Technologies - www.gamutgurus.com 
+	        [ Exclusive DevOps & Cloud Learning Hub ]
 		
-Contact: info@wiculty.com
-		 info@gamutgurus.com
+        For trainings Contact: info@wiculty.com
+		               info@gamutgurus.com
 			 
-		 India: +91- 944897 1000
-		 US & ROW: +1 ...
-	
-Project, Practicals & Notes:
-------------------------------
-Project:
-Gamut Gurus e-commerce Application
-( Traditional Build & Deployment and Application Hosting )
+		 Mobile: +91- 944897 1000
+
+=======================================================================
+
+#		 
+Project-1: Nginx Application
+============================
+Objective:
+Before learining Kuberenetes one should have a fair understanding about creating Image using Docker instuctions file called 'Dockerfile'. In this project, you are going to learn how to create a Docker Image and Containerize your application. Once the Image is create, launch the 'Nginx Application' in the browser which is running inside a container.
+
+Prerequisite:
+- Docker Installation Reference - https://docs.docker.com/engine/install/ubuntu
+- Ubuntu Linux - Most of the commands should work in ather Linux flavours as well
+
+Goal:
+Create a Dockerfile to create image using Docker for an 'Nginx application' that includes 1.) Desired OS, 2.) Nginx web server 3.) Code deployment, 4.) Nginx server startup command.
 ---
 
-Description:
-Before we containerize the application, let's first see how typcial build and deployments model looks like with VMs or Physical machines where the application is not containerised. This approach has lot of disadvantages and inconsistencies when it comes to application Auto scaling, Zero Downtime Releases, Rollbacks, Rolling updates, Self healing ..etc.
+1. Create a Project folder
+  $ mkdir -p Projects/Wiculty-app
 
-Once we experience this model, Let's discuss the advantages of application containerisation and containerise our GamutGurus application.
+2. Write below sample application code in the file 'index.html' and place it inside 'Projects/Wiculty-app' dir
+  <html>
+     <body>
+       <h1 style="color:red;">wiculty.com - Exclusive DevOps & Cloud Learning Hub </h1>
+     </body> 
+  </html>
 
-Agenda:
-Build, Deploy and Launch Gamut Gurus e-commerce application.
-	1. Clone
-	2. Build
-	3. Deployment the gamutgurus.war package into Tomcat server
-
-# Clone The Project Source Code
-
-# Build the project
-
-# Deploy the project into Tomcat
-
-# Launch the application
-
-
-2.) Containerising Gamut Gurus e-commerce Application
-	1. Writing the Dockerfile to create the Image
-	2. Creating Docker Image using '$ docker build' command
-	3. Setting up the environment using treditional approach ex: Using shell script
+3. Go to 'Projects/Wiculty-app' directory and write 'Dockerfile' to create the Image for 'Nginx Application' 
+  $ cd Projects/Wiculty-app
+  $ vim Dockerfile --> Create Dockerfile using Vim or any other favourite editor
+        FROM ubuntu:18.04
+	MAINTAINER "info@wiculty.com"
+	RUN apt-get update
+	RUN apt-get install -y nginx
+	COPY index.html /var/www/html
+	ENTRYPOINT service nginx start && bash
 	
-3.) Using Kubernetes to Archestrate the containerised Application
+4. Build the Image using 'Docker commit' command and verify if the image is created
+  $ docker build -t="wicultydotcom/wiculty-app-img" . (Make sure the image name is prefixed with your name - in this case 'wicultydotcom') (don't forget the dot at the end)
+  $ docker images
 
---> After Next Webinar Session
+5. Create an account in Docker Hub - https://hub.docker.com. So that you can publish your image to the world.
+
+6. Login to you docker hub account and push the image
+  $ docker login (provide your 'Docker Hub' account details)
+  $ docker push wicultydotcom/wiculty-app-img (Make sure the image name is prefixed with your name - in this case 'wicultydotcom')
+
+7. Now your image is pushed into 'Docker Hub' and anyone can pull the image and launch the 'Wiculty Application. As you have created the image in your local machine and it still exists, remove it with below command so that you can experience the image download from 'Docker Hub'.
+  $ docker rmi wicultydotcom/wiculty-app-img
+
+8. Test your 'Nginx Application' running inside the container.
+  $ docker run -it --name wiculty-app wicultydotcom/wiculty-app-img
+
+9. Launch the Wiculty Application by hitting the container IP with port default Nginx web server port 80.
+  $ hostname -i --> Get the IP address of the container ex: 172.17.0.2
+  $ curl http://172.17.0.2:80 OR 
+  $ Open the browser and hit the URL http://172.17.0.2:80 
+
+10. Congratulations! You have containerized your 'Wiculty Application' succussfully.
+
+Take Aways:
+Your 'Wiculty Application' code or software is bundled as Docker Image along with the prerequisites (OS, Nginx, Server start command). This is what you call 'Application containerization', meaning your application is running in the container using it's Docker Image.  
 
 
 
-Module:2
-Docker Essentials - Docker images - Deep dive!
-===============================================
-- What is Docker Image?
-- Docker image advantages in application deployments
-- Shipping application's code with dependencies as Docker Images
-- Setting up Docker Hub account. Publishing images into Docker Hub
-- Writing Dockerfile to create image for GamutGurus e-commerce application
-- Building Docker Image
-
+                Other Practical Notes... Yet to be published
+                
